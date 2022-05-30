@@ -1,0 +1,34 @@
+[
+  {
+    "title": "el psicoanalista",
+    "author": "john katzenbach",
+    "genre": "thriller",
+    "year": "2002",
+    "cost": "3000",
+    "price": "2800"
+  },
+  {
+    "title": "it",
+    "author": "steven king",
+    "genre": "terror",
+    "year": "1986",
+    "cost": "5000",
+    "price": "4500"
+  },
+  {
+    "title": "cien años de soledad",
+    "author": "gabriel garcia marquez",
+    "genre": "narrativa",
+    "year": "1967",
+    "cost": "2700",
+    "price": "2500"
+  },
+  {
+    "title": "el principito",
+    "author": "antoine de saint-exupe",
+    "genre": "ficcion",
+    "year": "1943",
+    "cost": "700",
+    "price": "500"
+  }
+]

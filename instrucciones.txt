@@ -1,0 +1,112 @@
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Este es un archivo creado para explicar el correcto uso de la aplicación para los libros.
+
+La aplicación consta de cuatro comandos para la lectura, carga, edición y borrado de los libros que se encuentran en la base de datos (archivo booksData.json)
+Los correspondientes comandos serán ejecutados desde el archivo "app.js"
+
+1) Lectura de la base de datos de libros: para realizar la lectura de la base de datos de los libros, se introduce el comando "read", el cual mostrará por terminal la
+lista completa de los libros existentes en la base de datos.
+
+El comando "read" llama a la función "read", la cual lee e interpreta la base de datos de libros (en formato .json) a un Objeto literal. Esto permite poder manipular,
+ editar, agregar y eliminar datos en la base de datos de libros.
+
+Ejemplo de carga del comando read por terminal:
+
+            node app read
+
+
+2) Carga de nuevos libros: para cargar los nuevos libros se introduce por terminal el comando "new" seguido de 6 valores que describen 
+las caracteristicas del mismo:
+
+a) "Title" (Título): primer valor de carga.
+b) "Author" (Autor): segundo valor de carga.
+c) "Genre" (Genero): tercer valor de carga.
+d) "Year" (Año de publicación): cuarto valor de carga.
+e) "Cost" (Precio de compra): quinto valor de carga.
+f) "Price" (Precio de venta): sexto valor de carga.
+
+
+El comando "new" llama a la función "add.js", la cual crea un nuevo Objeto literal con los 6 datos que se cargaron anteriormente. Además, esta función
+detecta si el libro que uno intenta ingresar ya no esta cargado en la base de datos, para asi evitar duplicados. Si el proceso de carga fue correcto, se muestra un 
+mensaje por terminal que la carga del libro fue exitosa, mostrando sus caracteristicas.
+
+Ejemplo de carga del comando new por terminal:
+
+            node app new "El psicoanalista" "John Katzenbach" thriller 2002 3000 2800
+
+
+Es muy importante que, en el caso de que se requiera cargar mas de una palabra en alguno de los 6 valores, se debera encerrar con comillas el mismo. 
+Por ejemplo: "El psicoanalista" y no El psicoanalista
+
+
+3) Edicion de libros existentes en la base de datos de libros: para realizar la edicion de alguna de las caracteristicas de los libros existentes, se introduce el 
+comando "edit", seguido del título del libro a editar y las 5 caracteristicas a editar del correspondiente libro:
+
+a) "Title" (Título del libro existente): primer valor de carga (deberá existir en la base de datos).
+b) "Author" (Autor. valor a editar): segundo valor de carga.
+c) "Genre" (Genero. valor a editar): tercer valor de carga.
+d) "Year" (Año de publicación. valor a editar): cuarto valor de carga.
+e) "Cost" (Precio de compra. valor a editar): quinto valor de carga.
+f) "Price" (Precio de venta. valor a editar): sexto valor de carga.
+
+El comando "edit" llama a la función "edit.js", la cual recorre la base de datos de libros para localizar el título del libro existente. Una vez encontrado, reemplazará 
+los 5 datos existentes por los valores nuevos cargados por terminal. Además, esta función detecta si el libro que uno intenta ingresar no esta cargado en la base de datos. 
+En caso que el libro cargado no exista, se mostrará por terminal un mensaje que dira que el libro cargado no existe. Si el proceso de edición fue correcto, se muestra un 
+mensaje por terminal que la edicion de las caracteristicas del libro existente fue exitosa, mostrando las caracteristicas editadas.
+
+Ejemplo de carga del comando edit por terminal:
+
+            node app edit "El psicoanalista" "John Katzenbach" terror 2010 2500 2000
+
+
+Es muy importante que, en el caso de que se requiera cargar mas de una palabra en alguno de los 6 valores, se debera encerrar con comillas el mismo. 
+Por ejemplo: "El psicoanalista" y no El psicoanalista
+
+4) Borrado de libros existentes en la base de datos: para realizar el borrado de algun libro existente, se introduce el comando "delete", seguido del título del libro a eliminar.
+
+El comando "delete" llama a la función "borrar.js", la cual recorre la base de datos de libros para localizar el título del libro existente a eliminar. Una vez encontrado, 
+elimina el libro existente con todas sus caracteristicas. Además, esta función detecta si el libro que uno intenta ingresar no esta cargado en la base de datos. 
+En caso que el libro cargado no exista, se mostrará por terminal un mensaje que dira que el libro cargado no existe. Si el proceso de borrado fue correcto, se mostrará un 
+mensaje por terminal que el borrado del libro fue exitoso.
+
+Ejemplo de carga del comando delete por terminal:
+
+            node app delete "El psicoanalista"
+
+
+Es muy importante que, en el caso de que se requiera cargar mas de una palabra para identificar el título, se debera encerrar con comillas el mismo. 
+Por ejemplo: "El psicoanalista" y no El psicoanalista
+
+5) comando "help": mostrará por terminal este mensaje.
+
+Ejemplo de carga del comando help por terminal:
+
+            node app help
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Funciones adicionales que sirven para el correcto funcionamiento de la aplicación:
+
+
+A) función "idDetector": 
+
+Esta función tiene como objetivo evitar que no se repitan libros que ya esten cargados en la base de datos. Esta función crea un array 
+el cual contendra todos los títulos de los libros existentes y cada uno de estos títulos serán comparados con el título cargado por terminal. Si el titulo del libro existe, devolverá un 
+valor booleano "TRUE", en caso de no existir devolverá un valor booleano "FALSE. 
+
+Además, la función pasa a minusculas el título introducido en terminal, para evitar duplicados de un mismo libro escrito en mayusculas.
+Esta función es llamada en el archivo "add.js".
+
+
+B) función "write":
+
+La función "write", permite sobreescribir la base de datos de libros existente con la nueva base actualizada. La función interpreta los datos en formato .js a un formato .json. Esto permite poder almacenarlos
+de forma permanente.
+Esta función es llamada en los archivos "edit.js" "add.js" y "delete.js".
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------
